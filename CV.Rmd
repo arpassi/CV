@@ -1,0 +1,198 @@
+---
+layout: page
+title: "CV
+permalink: /CV/
+---
+
+
+
+```{r , echo=FALSE, warning=FALSE, include=FALSE}
+# layout: single
+
+
+library(DT)
+library(captioner)
+library(huxtable)
+library(kableExtra)
+library(icon)
+
+fig_nums<-captioner(prefix = "FIGURE")
+tab_nums<-captioner(prefix = "TABLE")
+set.seed(42)
+```
+
+
+PhD (c), UCL Research Department of Epidemiology & Public Health
+Associated researcher, Department of Public Health, School of Medicine, Pontificia Universidad Católica de Chile.
+
+`r fa("envelope")` [  alvaro.passi.17@ucl.ac.uk](mailto:alvaro.passi.17@ucl.ac.uk)   
+`r fa("phone")`  [  +44 784 3821 487 ](+44 784 3821 487 )      
+`r fa("linkedin")` [  Linkedin](https://uk.linkedin.com/in/alvaro-passi-solar-39692924)   
+`r fa("google")` [  Scholar](https://scholar.google.com/citations?user=kJfYxKMAAAAJ)  
+
+<br>
+
+## `r paste(tab_nums(name = "t1", caption = " "),"EDUCATION",sep="")`
+
+
+```{r echo=FALSE,  warning = FALSE, include=TRUE}
+df0<- rio::import('/home/passi/MEGA/PhD/PhD_report/content/CV/Edu.csv')
+
+# df0$Order<-NA
+# df0$Order[grepl("All",df0$Diag)]<-1
+# df0$Order[is.na(df0$Order)]<-2
+# df0<-df0[order(df0$Order,-df0$p_score),]
+# 
+# write.csv(df0,file=paste0("exc_mort","df0_sig1_5.csv"))
+# df0<- df0 %>% 
+#   mutate(across(where(is.numeric), round, 1))
+names(df0)<-c("Date","Description")
+
+h1<-hux(df0)
+h1<-set_number_format(h1, NA)
+width(h1) <- 1
+
+k1<-kable(df0, col.names = NULL, booktabs = TRUE) %>%
+  kable_styling(fixed_thead = T)  %>%
+  kable_paper() %>%
+  # scroll_box(width = "100%", height = "300px") %>%
+  kable_classic(full_width = T, position = "center", )%>%
+  # column_spec(2, width = "300px")%>%
+  # row_spec(0, bold = T, color="black")%>%
+  column_spec(1, width = "25%", bold = F, border_right = F) 
+
+k2<-kable(df0, col.names = NULL, booktabs = TRUE) %>%
+  kable_classic(full_width = F, position = "center", )%>%
+  # row_spec(0, bold = T, color="black") %>%
+  column_spec(1, width = "8em", bold = F, border_right = F) %>%
+  column_spec(2, width = "35em", bold = F, border_right = F)
+
+
+# df0_dt<-DT::datatable(df0, extensions = ('Buttons'),
+#                     options = list(
+#                       rownames= FALSE,
+#                       pageLength = 25, paging = FALSE,  searching= FALSE, width='100%',
+#                       # dom = 'frtipB',
+#                       dom = 'Bfrtip',
+#                       buttons = list('copy','csv')))
+
+if (knitr::is_latex_output()) {k2} else {
+  if (knitr::is_html_output()) {
+    k1
+    } else {h1}
+}
+# htmlwidgets::saveWidget(df0_dt, file = "df0_dt.html", selfcontained = TRUE)
+# 
+# 
+# <iframe 
+# src="/cv/df0_dt.html"
+# frameborder="0"
+# scrolling="yes" 
+# style="overflow:hidden;height:300px;width:100%" >
+# </iframe> 
+```
+
+
+
+
+<br>
+
+## `r paste(tab_nums(name = "t2", caption = " "),"MAIN WORK EXPERIENCE",sep="")`
+
+
+
+```{r echo=FALSE,  warning = FALSE, include=TRUE}
+df0<- rio::import('/home/passi/MEGA/PhD/PhD_report/content/CV/work.csv')
+
+# df0$Order<-NA
+# df0$Order[grepl("All",df0$Diag)]<-1
+# df0$Order[is.na(df0$Order)]<-2
+# df0<-df0[order(df0$Order,-df0$p_score),]
+# 
+# write.csv(df0,file=paste0("exc_mort","df0_sig1_5.csv"))
+# df0<- df0 %>% 
+#   mutate(across(where(is.numeric), round, 1))
+names(df0)<-c("Date","Description")
+
+h1<-hux(df0)
+h1<-set_number_format(h1, NA)
+width(h1) <- 1
+
+
+k1<-kable(df0, col.names = NULL, booktabs = TRUE) %>%
+  kable_styling(fixed_thead = T)  %>%
+  kable_paper() %>%
+  # scroll_box(width = "100%", height = "300px") %>%
+  kable_classic(full_width = T, position = "center", )%>%
+  # column_spec(2, width = "30")%>%
+  # row_spec(0, bold = T, color="black")%>%
+  column_spec(1, width = "25%", bold = F, border_right = F) 
+
+k2<-kable(df0, col.names = NULL, booktabs = TRUE) %>%
+  kable_classic(full_width = F, position = "center", )%>%
+  # row_spec(0, bold = T, color="black") %>%
+  column_spec(1, width = "8em", bold = F, border_right = F) %>%
+  column_spec(2, width = "35em", bold = F, border_right = F)
+
+
+# df0_dt<-DT::datatable(df0, extensions = ('Buttons'),
+#                     options = list(
+#                       rownames= FALSE,
+#                       pageLength = 25, paging = FALSE,  searching= FALSE, width='100%',
+#                       # dom = 'frtipB',
+#                       dom = 'Bfrtip',
+#                       buttons = list('copy','csv'))) 
+
+if (knitr::is_latex_output()) {k2} else {
+  if (knitr::is_html_output()) {
+    k1
+    } else {h1}
+}
+# htmlwidgets::saveWidget(df0_dt, file = "df0_dt2.html", selfcontained = TRUE)
+# 
+
+# <iframe 
+# src="/cv/df0_dt2.html"
+# frameborder="0"
+# scrolling="yes" 
+# style="overflow:hidden;height:300px;width:100%" >
+# </iframe> 
+```
+
+
+<br>
+
+**KEY PAPERS **
+
+
+<font size="3">
+
+
+
+
+*   [**Passi-Solar, Á**., Margozzini, P., Mindell, J. S., Ruiz, M., Valencia-Hernandez, C. A., & Scholes, S. (2020). Hypertension care cascade in Chile: a serial cross-sectional study of national health surveys 2003-2010-2017. BMC Public Health, 20(1), 1397. ](https://doi.org/10.1186/s12889-020-09483-x)
+*   [**Passi-Solar, Á.**, Margozzini, P., Cortinez-O’Ryan, A., Muñoz, J. C., & Mindell, J. S. (2020). Nutritional and metabolic benefits associated with active and public transport: Results from the Chilean National Health Survey, ENS 2016–2017. Journal of Transport and Health, 17, 100819. ](https://doi.org/10.1016/j.jth.2019.100819)
+*   [Busso, D., Echeverría, G., **Passi-Solar, A**., ... Margozzini, P. (2020). Folate status in women of childbearing age in the Urban Metropolitan Region of Chile: results from the National Health Survey 2016–2017. Public Health Nutrition, 1–8. ](https://doi.org/10.1017/S1368980020002608)
+*   [Durán, J., ...**Passi-Solar, A.**, .. Margozzini, P. (2020). The Prevalence of Rheumatoid Arthritis in Chile: A Nationwide Study Performed as Part of the National Health Survey. The Journal of Rheumatology, 47(7), 951–958. ](https://doi.org/10.3899/jrheum.190396)
+*   [Margozzini, P., & **Passi, Álvaro**. (2018). Encuesta Nacional de Salud, ENS 2016-2017: un aporte a la planificación sanitaria y políticas públicas en Chile. ARS MEDICA Revista De Ciencias Médicas, 43(1), 30–34.](https://doi.org/10.11565/arsmed.v43i1.1354)
+*   [Ferreccio C, Roa JC, Bambs C, **Passi-Solar, A**, et al. Study protocol for the Maule Cohort (MAUCO) of chronic diseases, Chile 2014-2024. BMC Public Health. 2016;16:122. Published 2016 Feb 4. ](doi:10.1186/s12889-015-2454-2)
+*   [**Passi, Alvaro**, Margozzini, Paula, et al. (2016). Inappropriate medication use among Chilean older people. Revista médica de Chile, 144(4), 417-425. ](https://dx.doi.org/10.4067/S0034-98872016000400001)
+
+<font size="4">
+
+**KEY CONGRESS PRESENTATIONS**
+
+<font size="3">
+
+*   [Passi-Solar, A., Margozzini, P., Mindell, J., Ruiz, M., & Scholes, S. (2020). P33 Socioeconomic inequalities in the prevalence and management of hypertension: a multilevel analysis of 13,605 men and women in Chile. SSM2020. ](https://www.socsocmedposters.co.uk/poster/socioeconomic-inequalities-in-the-prevalence-and-management-of-hypertension-a-multilevel-analysis-of-13605-men-and-women-in-chile/)
+*   [Passi-Solar, A., Margozzini, P., Mindell, J., Ruiz, M., & Scholes, S. (2019). P1948Socioeconomic inequalities in the prevalence and management of hypertension: analyses of the Chilean National Health Surveys 2003, 2010 and 2017. European Heart Journal, 40(Supplement_1). ](https://doi.org/10.1093/eurheartj/ehz748.0695)
+*   [Passi-Solar, A., Margozzini, P., 2018. Perceived neighbourhood social trust and hypertension control in Chile: results from a National Health Survey, in: International Journal of Behavioural Medicine (ICBM) Congress 2018. p. 145.](https://issuu.com/zentidos/docs/2018_icbm_abstracts/145)
+*   [Bedregal, P., & Passi-Solar, A. (2017). Chilean National Health Survey 2010-2011: chronic pain in adults and the use of complementary and alternative therapies (CAM). International Congress on Integrative Medicine and Health, 17(S1), 322.](https://doi.org/10.1186/s12906-017-1782-4)
+*   [Use of medicines in Chile: results of the National Health Survey ENS2017. (2018). V Chilean Congress of Public Health and VII Chilean Congress of Epidemiology, Salud En Todas: Ciudadanía Construyendo Salud.](https://www.medwave.cl/medios/medwave/ResumenesSP2019/Libro-Resumenes.pdf)
+*   [Physical Activity and Sedentary Behavior in the 2016-17 National Health Survey. (2018). V Chilean Congress of Public Health and VII Chilean Congress of Epidemiology, Salud En Todas: Ciudadanía Construyendo Salud.](https://www.medwave.cl/medios/medwave/ResumenesSP2019/Libro-Resumenes.pdf)
+*   [Margozzini, P., Pizarro Ibáñez, A., de Arcas Orellana, M., Anriquez Jiménez, S., Lorna, J., & Passi-Solar, A. (2016). Chronic multimorbidity in chilean adults: analysis of the national health survey, ENS 2009-2010. Medwave, 16(Suppl6), 6634–6634. ](https://doi.org/10.5867/medwave.2016.6634)
+*   [Passi-Solar A., Valdivia G. (2013). Use and abuse of corticosteroids in respiratory diseases.. Revista Chilena de Enfermedades Respiratorias, 29(2), 67–69.](https://doi.org/10.4067/S0717-73482013000200001)
+
+
+
+</font> 
