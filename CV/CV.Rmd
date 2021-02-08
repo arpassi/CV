@@ -1,34 +1,7 @@
 ---
-title: 'Álvaro Passi-Solar'
-categories: []
-date: "`r Sys.Date()`"
-output:
-  html_document:
-    toc: no
-    toc_depth: 3
-    toc_float: yes
-    number_sections: no
-    theme: united
-    highlight: tango
-  pdf_document: 
-    latex_engine: xelatex
-    toc: no
-    toc_depth: '3'
-  word_document:
-    toc: yes
-    toc_depth: '3'
-featured: no
-image:
-  caption: ''
-  focal_point: ''
-  preview_only: no
-projects: []
-subtitle: ''
-summary: ''
-tags: []
-authors: []
-draft: no
-share: false
+layout: page
+title: "CV
+permalink: /CV/
 ---
 
 
